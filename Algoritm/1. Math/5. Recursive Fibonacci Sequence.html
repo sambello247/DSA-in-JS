@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursive Fibonacci Sequence</title>
+</head>
+<body>
+    <h2>Recursive Fibonacci</h2>
+    <p>In Mathematics The fibonacci sequence is a sequence in which each number is the sum of two preceeding ones. The first two numbers in the sequence are 0 and 1. (0,1,1,2,3,5,8...)</p>
+
+    <script>
+        /*
+            In Mathematics The fibonacci sequence is a sequence in which each number is the sum of two preceeding ones.
+            The first two numbers in the sequence are 0 and 1. (0,1,1,2,3,5,8...)
+
+            Problem: Give a number 'n' find the nth element of the Fibonacci Sequence.
+
+        */
+
+        function recursiveFibonacci(n){
+
+            if(n < 2){ //Base Case or Stop Point
+                return n;
+            }   
+            
+            return recursiveFibonacci(n-1) + recursiveFibonacci(n-2);
+        }
+
+        console.log(recursiveFibonacci(6));
+
+        /* 
+            BigO = O(2^n) - exponential growth (pronunced as BigO of 2 to the nth power)
+            
+            By looking at the BigO complexity chart, you will realise, 
+            recurssion is teribble operation and not a good solution to the fibonacci sequence.
+        */
+
+    </script>
+    
+</body>
+</html>

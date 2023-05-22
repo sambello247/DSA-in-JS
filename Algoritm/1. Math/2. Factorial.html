@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial </title>
+</head>
+<body>
+
+    <h2>Factorial</h2>
+
+    <p>The factorial of a non-negative integer n, denoted as n!, is the product of all positive integers less than or equal to n.
+    </p>
+    <p>For example, the factorial of 5 is calculated as follows: <br>
+        5! = 5 * 4 * 3 * 2 * 1 = 120</p>
+
+    <script>
+
+        /*
+            The factorial of a non-negative integer n, denoted as n!, is the product of all positive integers less than or equal to n.
+
+            For example, the factorial of 5 is calculated as follows:
+            5! = 5 * 4 * 3 * 2 * 1 = 120
+        */
+
+        /* 
+            Problem - Give a integer  'n', find the factorial of that integer.
+        */
+
+        // Factorial Itterative
+        function factorialIterative(n){
+
+            let result = 1;
+            for(let i = 2; i <= n; i++){
+                result  *= i;
+            }
+
+            return result;
+        }
+
+        // Example usage
+        console.log(factorialIterative(5));
+        
+        // Big-O = O(n) Linear time complexity.
+
+
+
+
+        //Factorial Recursive
+        function factorialRecursive(n) {
+            if (n === 0 || n === 1) {
+                return 1;
+            }
+            return n * factorialRecursive(n - 1);
+        }
+
+        // Example usage
+        console.log(factorialRecursive(5)); // Output: 120
+
+
+        /*
+            The Big O of the code is O(n). This is because the number of recursive calls is proportional to n. For example, if n = 5, then there will be 5 recursive calls. The time complexity of each recursive call is O(1), so the total time complexity is O(n).
+        */
+
+        // Big-O = O(n) Linear time complexity.
+
+    
+
+        
+
+    </script>
+    
+</body>
+</html>

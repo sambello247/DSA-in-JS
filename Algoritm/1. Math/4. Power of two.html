@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Of Two</title>
+</head>
+<body>
+
+    <h2>Power of Two</h2>
+    <p>An integer is a power of two it there exists an integer 'x' such that 'n' === 2x</p>
+
+    <script>
+        /* 
+            An integer is a power of two it there exists an integer 'x' such that 'n' === 2x
+            Problem: Give a positive integer 'n', determing if the number is a power of 2 or not.
+        */
+
+        function isPowerOfTwo(n){
+           if(n < 1){
+            return false;
+           }
+
+           while(n > 1){
+                if(n % 2 !== 0){
+                    return false;
+                }
+                n = n/2;
+           }
+           return true;
+            
+        }
+
+        // console.log(isPowerOfTwo(8));
+
+        /*
+            In each iteration we are reducing the value of n by half. so the time complexity is O(logn), the number 
+            of instruction execution increases as n grows but not by the same amount.
+
+            Big-0 = O(logn)
+        */
+
+
+        function isPowerOfTwoBitWise(n){
+
+            if(n < 1){
+                return false;
+            }
+
+            return (n & (n-1)) === 0;
+        }
+
+        console.log(isPowerOfTwoBitWise(1)); //true
+        console.log(isPowerOfTwoBitWise(2)); //true
+        console.log(isPowerOfTwoBitWise(5)); //false
+        
+        /*
+            Big-0 = O(1)
+        */
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

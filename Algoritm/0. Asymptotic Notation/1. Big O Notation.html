@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big O Notation</title>
+</head>
+<body>
+    <p>Big O notation is a mathematical notation used to describe the asymptotic upper bound of the growth rate of a function. It is commonly used in computer science to analyze the time and space complexity of algorithms and data structures.</p>
+
+    <p>In particular, Big O notation describes how the time or space requirements of an algorithm grow with respect to the input size. The input size typically refers to the number of elements in the input data or the number of steps in the computation.</p>
+
+    <p>In Big O notation, an algorithm's time or space complexity is expressed as a function of the input size (n), and the notation provides an upper bound on the growth rate of that function as n approaches infinity.</p>
+
+    <p>For example, if an algorithm has a time complexity of O(n), it means that the time required to execute the algorithm grows linearly or less than linearly with the input size. If an algorithm has a time complexity of O(n^2), it means that the time required to execute the algorithm grows quadratically or less than quadratically with the input size.</p>
+
+    <p>The Big O notation helps us analyze and compare the efficiency of algorithms without getting into the specifics of constant factors or lower-order terms. It also provides a way to reason about an algorithm's scalability, helping us understand how it will perform as the input size grows.</p>
+
+    <p>In summary, Big O notation is a mathematical notation used to describe the growth rate of a function and is commonly used in computer science to analyze and compare the time and space complexity of algorithms and data structures.</p>
+
+    <h4>Here are some other examples of big O notation:</h4>
+
+    <ul>
+        <li>O(n) - linear growth </li>
+        <li>O(log n) - logarithmic growth</li>
+        <li>O(n log n) - logarithmic-linear growth</li> 
+        <li>O(n^2) - quadratic growth</li>  
+        <li>O(n^3) - cubic growth</li>  
+        <li>O(2^n) - exponential growth</li> 
+    </ul>
+    <script>
+
+
+        /* 
+            Example of Big O notation Time complexity
+            O(1) - Constant Time Complexity:
+
+            The time complexity of this function is constant because it always prints the first element of the array, regardless of the size of the input array. It takes the same amount of time to execute regardless of the array's length.
+        */
+
+        function printFirstElement(arr) {
+            console.log(arr[0]);
+        }
+
+
+
+         /* 
+            Example of Big O notation Time complexity
+            O(n) - Linear Time Complexity:
+
+            This function prints all elements of the array, so the time it takes to execute grows linearly with the input size. If the array has n elements, the loop iterates n times, making the time complexity O(n).
+
+        */
+
+        function printAllElements(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                console.log(arr[i]);
+            }
+        }
+
+
+        
+        /* 
+            Example of Big O notation Time complexity
+            O(n^2) - Quadratic Time Complexity:
+
+            This function prints all possible pairs of elements in the array. It uses nested loops, resulting in a quadratic time complexity. If the array has n elements, the outer loop runs n times, and the inner loop runs n times for each iteration of the outer loop. Hence, the time complexity is O(n^2).
+
+        */
+
+        function printAllPairs(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr.length; j++) {
+                console.log(arr[i], arr[j]);
+                }
+            }
+        }
+
+
+
+         /* 
+            Example of Big O notation Space complexity
+            O(1) - Constant Space Complexity:
+
+            This function takes a constant amount of space because it uses only a fixed number of variables (a, b, result) regardless of the input size. The space complexity remains constant or O(1).
+
+        */
+
+
+        function sum(a, b) {
+            let result = a + b;
+            return result;
+        }
+
+
+
+        /* 
+            Example of Big O notation Space complexity
+            O(n) - Linear Space Complexity:
+
+            This function creates an array of size n. As n increases, the space required to store the array grows proportionally. Therefore, the space complexity is linear or O(n) because the space usage scales with the input size.
+
+        */
+
+
+        function createArray(n) {
+            let arr = [];
+            for (let i = 0; i < n; i++) {
+                arr.push(i);
+            }
+            return arr;
+        }
+
+
+
+        /* 
+            Example of Big O notation Space complexity
+            O(n^2) - Quadratic Space Complexity:
+
+            This function creates a 2D matrix of size n x n. As n increases, the space required to store the matrix grows quadratically. Hence, the space complexity is O(n^2).
+
+        */
+
+        function createMatrix(n) {
+            let matrix = [];
+            for (let i = 0; i < n; i++) {
+                matrix[i] = [];
+                for (let j = 0; j < n; j++) {
+                matrix[i][j] = i + j;
+                }
+            }
+            return matrix;
+        }
+
+
+
+
+
+
+
+
+
+
+
+        
+    </script>
+    
+</body>
+</html>

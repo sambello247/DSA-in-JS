@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search</title>
+</head>
+<body>
+
+    <h2>Binary Search</h2>
+
+    <p>Binary search is an efficient algorithm used to search for a specific target value within a sorted list or array. It follows a divide-and-conquer approach by repeatedly dividing the search space in half until the target value is found or determined to be absent</p>
+
+    <p>Here's how the binary search algorithm works:</p>
+
+    <ol>
+        <li>Start with a sorted list or array of elements.</li>
+        <li>Define two pointers, low and high, which represent the indices marking the current search range.</li>
+        <li>Calculate the middle index as (low + high) / 2, rounding down if necessary.</li>
+        <li>
+            Compare the target value with the element at the middle index.
+            <ul>
+                <li>If they match, the target value is found, and the search terminates successfully.</li>
+                <li>If the target value is less than the middle element, update high to be one index less than the middle index. This restricts the search space to the lower half of the list.</li>
+                <li>If the target value is greater than the middle element, update low to be one index more than the middle index. This restricts the search space to the upper half of the list.</li>
+                <li>If the target value is greater than the middle element, update low to be one index more than the middle index. This restricts the search space to the upper half of the list.</li>
+                <li>If the search range is empty and the target value hasn't been found, the search terminates unsuccessfully.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <p>The key advantage of binary search is that it dramatically reduces the search space with each iteration, as it eliminates half of the remaining elements at every step. This leads to an efficient search algorithm with a time complexity of O(log n), where n is the number of elements in the sorted list.</p>
+
+    <p>Binary search is most effective when applied to sorted lists or arrays since it relies on the ability to divide the search space in half. If the list is not sorted, the binary search algorithm won't work correctly, and a different search algorithm may be more appropriate.</p>
+
+    <script>
+
+        function binarySearch(array, target) {
+        
+            //Define Pointers
+            let leftIndex = 0;
+            let rightIndex = array.length - 1;
+
+
+            //The loop continues until low is greater than high. When this happens, the function returns -1, which indicates that the target value was not found in the array.
+            while (leftIndex <= rightIndex) {
+                let midIndex = Math.floor((leftIndex + rightIndex) / 2);
+
+                //Compares the target value to the middle element. If they are equal,    the function returns the middle index. Otherwise, the function updates the low and high variables based on whether the target value is less than or greater than the middle element.
+                if (target === array[midIndex]) {
+                    return midIndex;
+                } else if (target < array[midIndex]) {
+                    rightIndex = midIndex - 1;
+                } else {
+                    leftIndex = midIndex + 1;
+                }
+            }
+
+            return -1;
+
+        }
+
+        console.log(binarySearch([-5, 2, 4, 6, 10], 10));
+        console.log(binarySearch([-5, 2, 4, 6, 10], 6));
+        console.log(binarySearch([-5, 2, 4, 6, 10], 20));
+
+
+
+    </script>
+    
+</body>
+</html>
