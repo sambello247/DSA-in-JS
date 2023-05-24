@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort</title>
+</head>
+<body>
+
+    <h2>Bubble Sort</h2>
+    <p>Bubble sort is a simple sorting algorithm that works by repeatedly comparing adjacent elements and swapping them if they are in the wrong order. Bubble sort is not very efficient, but it is easy to understand and implement.</p>
+    
+    <h2>Bubble sort example</h2>
+    <p>
+        <p>This is how bubble sort work: </p>
+
+        [-6, 20, 8, -2, 4] <br>
+        [-6, 20, 8, -2, 4] -> [-6, 8, 20, -2, 4] Swap since 20 > 8 <br>
+        [-6, 8, 20, -2, 4] -> [-6, 8, -2, 20, 4] Swap since 20 > -2<br>
+        [-6, 8, -2, 20, 4] -> [-6, 8, -2, 4, 20] Swap since 20 > 4<br>
+        
+        <p>End of array. Elements swapped? Yes? Repeat the comparision.</p>
+
+
+        [-6, 8, -2, 4, 20] <br>
+        [-6, 8, -2, 4, 20] -> [-6, -2, 8, 4, 20] Swap since 8 > -2 <br>
+        [-6, -2, 8, 4, 20] -> [-6, -2, 4, 8, 20] Swap since 8 > 4<br>
+        [-6, -2, 4, 8, 20] <br>
+
+        <p>End of array. Elements swapped? Yes? Repeat the comparision.</p>
+
+        <p>This continues until non of the element can't be swapped, which means the array has been completely sorted</p>
+    </p>
+
+
+    <script>
+
+        /* 
+            Problem Statement - Given an array of integers, sort the array.
+        */
+
+        function bubbleSort(arr){
+            let swapped;
+            do{
+                swapped = false;
+                for(let i = 0; i < arr.length - 1; i++){
+                    if(arr[i] > arr[i+1]){
+                        let temp = arr[i];
+                        arr[i] = arr[i+1]
+                        arr[i+1] = temp;
+                        swapped = true;
+                    }
+                }
+            } while(swapped)
+            
+        }
+
+        const arr = [8, 20, -2, 4, -6];
+        bubbleSort(arr)
+        console.log(arr);
+
+
+
+
+    </script>
+    
+</body>
+</html>

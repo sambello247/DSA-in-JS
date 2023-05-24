@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursive Binary Search</title>
+</head>
+<body>
+
+    <h2>Recursive binary search </h2>
+    <p>Recursive binary search is an algorithmic approach for searching for an element within a sorted array or list. It follows the divide-and-conquer strategy, repeatedly dividing the search space in half until the desired element is found or determined to be absent.</p>
+
+    <p>Here's a high-level overview of how recursive binary search works:</p>
+
+    <ol>
+        <li><strong>Base case:</strong> The algorithm starts with a sorted array and defines a base case. If the array is empty or the search space has been narrowed down to a single element, the algorithm either returns the index of the element if it matches the search key or indicates that the element is not found.</li>
+        <li><strong>Divide:</strong> The algorithm finds the middle element of the current search space (array) by calculating the average of the lower and upper indices. If the middle element matches the search key, the algorithm returns the index.</li>
+        <li><strong>Conquer:</strong> If the middle element is greater than the search key, the algorithm recursively performs a binary search on the lower half of the array. Otherwise, if the middle element is less than the search key, the algorithm recursively performs a binary search on the upper half of the array.</li>
+        <li><strong>Combine:</strong> The result of the recursive calls is propagated back up the call stack until the final result is obtained.</li>
+    </ol>
+
+    <script>
+
+        /*
+            Problem -  Given a sorted array of 'n' elements and a target element 't', find the index of 't' in the array. Return -1 if the target element is not found.
+            arr = [-5,2,4,6,10], t = 10 -> Should return 4
+            arr = [-5,2,4,6,10], t = 6 -> Should return 3            
+            arr = [-5,2,4,6,10], t = 20 -> Should return -1
+        */
+
+
+        function recursiveBinarySearch(array, target, start, end) {
+            // Base case: if the array is empty, return -1
+            if (start > end) {
+                return -1;
+            }
+
+            // Calculate the middle index of the array
+            let mid = Math.floor((start + end) / 2);
+
+            // Compare the target value to the middle element
+            if (array[mid] === target) {
+                // If they are equal, return the middle index
+                return mid;
+            } else if (array[mid] < target) {
+                // If the target value is greater than the middle element,
+                // recursively search the right half of the array
+                return recursiveBinarySearch(array, target, mid + 1, end);
+            } else {
+                // If the target value is less than the middle element,
+                // recursively search the left half of the array
+                return recursiveBinarySearch(array, target, start, mid - 1);
+            }
+        }
+
+        const array = [1, 3, 5, 7, 9];
+        const target = 5;
+        const result = recursiveBinarySearch(array, target, 0, array.length - 1);
+        console.log(result);
+
+        //Big-O = O(logn) logarithmic
+
+
+    </script>
+    
+</body>
+</html>
