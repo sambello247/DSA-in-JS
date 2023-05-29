@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Merge Sort</title>
+</head>
+<body>
+    <h2>Merge Sort</h2>
+
+    <p>Merge sort is defined as a sorting algorithm that works by dividing an array into smaller subarrays, sorting each subarray, and then merging the sorted subarrays back together to form the final sorted array.</p>
+
+    <p>Here are the steps involved in merge sort:</p>
+
+    <ul>
+        <li>Divide the array into two halves.</li>
+        <li>Recursively sort each half of the array.</li>
+        <li>Merge the sorted halves of the array together.</li>
+    </ul>
+
+    <p>The array is divided into two halves by finding the middle element of the array. The first half of the array contains all of the elements that are smaller than the middle element, and the second half of the array contains all of the elements that are larger than the middle element.</p>
+
+    <p>The two halves of the array are then recursively sorted. This means that the merge sort algorithm is applied to each half of the array.</p>
+
+    <p>Once the two halves of the array have been sorted, they are merged together. The merging process is done by comparing the first element of each half of the array. The smaller element is then placed in the new sorted array. The process continues until all of the elements from both halves of the array have been placed in the new sorted array.</p>
+
+    <p>Merge sort is a very efficient sorting algorithm. Its average-case time complexity is O(n log n), and its worst-case time complexity is O(n log n). Merge sort is also a stable sorting algorithm, which means that it preserves the original order of equal elements.</p>
+    
+
+    <script>
+        function mergeSort(arr){
+
+            if(arr.length < 2){
+                return arr
+            }
+            const mid = Math.floor(arr.length /2);
+            const leftArr = arr.slice(0, mid);
+            const rightArr = arr.slice(mid);
+            return merge(mergeSort(leftArr), mergeSort(rightArr))
+
+        }
+
+        function merge(leftArr, rightArr){
+            const sortedArr = [];
+            while(leftArr.length && rightArr.length){
+                if(leftArr[0] <= rightArr[0]){
+                    sortedArr.push(leftArr.shift())
+                }else{
+                    sortedArr.push(rightArr.shift())
+                }
+            }
+
+           return [...sortedArr, ...leftArr, ...rightArr];
+        }
+
+        const arr = [8, 20, -2, 4, -6];
+        console.log(mergeSort(arr)) // [-6, -2, 4, 8, 20]
+
+        //Big-O = O(nlogn)
+
+        
+    </script>
+</body>
+</html>

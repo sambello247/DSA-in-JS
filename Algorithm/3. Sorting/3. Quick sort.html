@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Quick Sort</title>
+</head>
+<body>
+    <h2>Quicksort</h2>
+
+    <p>Quicksort is a divide-and-conquer algorithm for sorting arrays. It works by picking an element, called the pivot, and partitioning the array around the pivot. The pivot is then placed in its correct position in the sorted array, and the two halves of the array are recursively sorted.</p>
+
+    <p>Here are the steps involved in quicksort:</p>
+        
+    <ul>
+        <li>Pick a pivot element.</li>
+        <li>Partition the array around the pivot.</li>
+        <li>Recursively sort the two halves of the array.</li>
+    </ul>
+    
+    
+    <p>The pivot element is usually chosen randomly, but it can also be chosen as the median of the array. The pivot is then placed in its correct position in the sorted array. The two halves of the array are then recursively sorted.</p>
+    
+    <p>Quicksort is a very efficient sorting algorithm. Its average-case time complexity is O(n log n), and its worst-case time complexity is O(n^2). Quicksort is also a stable sorting algorithm, which means that it preserves the original order of equal elements.</p>
+    
+    <p>Here is an example of how quicksort works:</p>
+
+    <p>Input: [-6, 20, 8, -2, 4]</p>
+
+    <ol>
+        <li>Pick the pivot element, 4.</li>
+        <li>Put everyithing that's smaller than the pivot into a 'left' array and everything that's greater than the pivot into a 'right' array:
+            * [-6, -2]
+            * [8, 20]
+        </li>
+        <li>Repeat the process for the individual 'left' and 'right' array till you have an array of length 1 which is sorted by defination</li>
+        <li>Repeatedly concatenate the left array, pivot and right array till one sorted array remains * [-6, -2, 4, 8, 20]</li>
+    </ol>
+
+    <p>Here are some of the advantages of quicksort:</p>
+
+    <ul>
+        <li>It is very efficient. Its average-case time complexity is O(n log n), and its worst-case time complexity is O(n^2).</li>
+        <li>It is a stable sorting algorithm, which means that it preserves the original order of equal elements.</li>
+        <li>It is easy to implement.</li>
+    </ul>
+
+    <p>Here are some of the disadvantages of quicksort:</p>
+
+    <ul>
+        <li>It is not in-place, which means that it requires extra space to sort the array.</li>
+        <li>It can be inefficient on small arrays.</li>
+    </ul>
+
+    <p>Overall, quicksort is a very efficient and popular sorting algorithm. It is a good choice for sorting large arrays of data.</p>
+
+    <p>Problem statement : Given an array of integers, sort the array.</p>
+    
+
+    <script>
+
+        function quickSort(arr){
+            if(arr.length < 2){
+                return arr;
+            }
+    
+            let pivot = arr[arr.length - 1]
+            let left = []
+            let right = []
+
+            for(let i = 0; i < arr.length -1; i++){
+                if(arr[i] < pivot){
+                    left.push(arr[i]);
+                }else{
+                    right.push(arr[i]);
+                }
+            }
+
+            return [...quickSort(left), pivot, ...quickSort(right)]
+        }
+        
+        const arr = [8, 20, -2, 4, -6];
+        console.log(quickSort(arr));
+
+        // Worst Case - O(n^2)
+        // Avg Case - O(n log n)
+      
+    </script>
+    
+</body>
+</html>

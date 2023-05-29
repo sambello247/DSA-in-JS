@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Cartesian Product Idea</title>
+</head>
+<body>
+
+    <h2> Cartesian Product</h2>
+    <p>In mathematics, specifically set theory, the cartesian product of two sets A and B, denoted A * B, is the set of all ordered pairs (a, b) where a is in A and b is in B. we will be representing a set as an array in javascript.</p>
+    <p>for example</p>
+    <p>const A = [1,2] <br>
+        const B = [3,4]</p>
+    <p>A * B = [[1,3], [1,4], [2,3], [2,4]]</p>
+
+    <p>i.e The cartisian product is an array that contains smaller arrays with elements</p>
+    
+    
+    <p>Similarly if we have two sets with elements</p>
+    <p>const C = [1,2] <br>
+        const D = [3,4,5]</p>
+
+    <p>The cartesian product
+        C * D = [[1,3],[1,4],[1,5],[2,3],[2,4],[2,5]]
+    </p>
+
+    <h2>Cartesian Product Idea</h2>
+    <p>Treverse each array and pair each element in the first array with each element in the second array.</p>
+    
+
+
+
+    <script>
+
+        function cartesianProduct(firstArr, secondArr){
+            let productArr = [];
+            for(i = 0; i < firstArr.length; i++){
+                for(j = 0; j < secondArr.length; j++){
+                    productArr.push([firstArr[i], secondArr[j]])
+                }
+            }
+            return productArr;
+        }
+
+        const firstArr = [1,2];
+        const secondArr = [3,4,5];
+        console.log(cartesianProduct(firstArr, secondArr));
+
+        //Big O = O(m*n)  - Quadratic Time Complexity. it is dependent on the length of both firstArr and secondArr, if the length are equal then it will be O(n^2).
+
+
+    </script>
+    
+</body>
+</html>
